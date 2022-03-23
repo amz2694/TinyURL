@@ -30,8 +30,7 @@ app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth.js'));
 app.use('/refresh', require('./routes/refresh'));
 
-// auth required part 
-app.use(verifyJWT);
+app.use('/short', require('./routes/api/shortner'));
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
