@@ -34,7 +34,7 @@ const handleCreateShortner = async (req,res) => {
 }
 
 const handleGetShortner = async (req,res) => {
-    const { URL } = req.body;
+    const URL = req.query.URL;
     if (!URL ) return res.status(400).json({ "message": "URL is required." });
     const foundURL = await Url.findOne({ shortURL : URL }).exec();
     if (foundURL) {

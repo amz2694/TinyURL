@@ -7,7 +7,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConfig');
 const corsOptions = require('./config/corsOption');
-const PORT = process.env.PORT || 8080;
+const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 8000;
 require('dotenv').config();
 
 // connect to database
@@ -17,7 +18,7 @@ connectDB();
 app.use(cors(corsOptions));
 
 // built-in middleware to handle urlencoded data
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // built-in middleware for json
 app.use(express.json());
