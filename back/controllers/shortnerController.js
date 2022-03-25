@@ -29,6 +29,7 @@ const handleCreateShortner = async (req,res) => {
         console.log(result);
         res.status(201).json({ "shortURL": short });
     } catch (err) {
+        console.log(err)
         res.status(500).json({ "message": err.message });
     }
 }
