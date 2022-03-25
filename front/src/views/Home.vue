@@ -1,13 +1,70 @@
 <template>
   <div class="home">
-   home
+    <auth @auth="setToken" v-if="showAuth" />
+   <input type="text" name="getURL" id="getURL" v-model="url">
+   <button @click="checkToken">submit</button>
+   <h1 @click="mmd">click</h1>
+   <h1 @click="mmauth">auth</h1>
+   <h1 @click="mmref">refresh</h1>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import auth from '../components/auth.vue'
 
 export default {
   name: 'Home',
-  components: {}
+  components: {auth},
+  data() {
+    return {
+      url : '',
+      short : '',
+      accessToken : '',
+      showAuth : false
+    }
+  },
+  methods : {
+    setToken(token) {
+      this.accessToken = token;
+      this.checkToken();
+    },
+    async checkToken() {
+      if (!this.accessToken) {
+        this.showAuth = true
+      } else {
+        await axios
+          .get('https://127.0.0.1:8000/refresh', {withCredentials: true})
+          .then(res => {
+            this.accessToken = res.data.accessToken
+            this.submitURL();
+            this.showAuth = false;
+          })
+          .catch(err => {
+            this.showAuth = true
+            console.log(err)
+          })
+      }
+    }
+    ,
+    async submitURL() {
+      const config = {
+        headers: { Authorization: `Bearer ${this.accessToken}` }
+      };
+      await axios
+        .post('https://127.0.0.1:8000/short',{"URL": this.url},config)
+        .then(res => {
+          this.short = res.data.shortURL;
+          console.log(`success ${this.short}`);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  }
 }
 </script>
+
+<style>
+
+</style>
