@@ -7,7 +7,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConfig');
 const corsOptions = require('./config/corsOption');
-const bodyParser = require('body-parser');
+const credentials = require('./middleware/credentials.js');
+var fs = require("fs");
+var https = require("https");
 const PORT = process.env.PORT || 8000;
 require('dotenv').config();
 
@@ -15,6 +17,7 @@ require('dotenv').config();
 connectDB();
 
 // cross origin resource sharing
+app.use(credentials);
 app.use(cors(corsOptions));
 
 // built-in middleware to handle urlencoded data
@@ -35,5 +38,13 @@ app.use('/short', require('./routes/api/shortner'));
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
-    app.listen(PORT, () => console.log(`server running on port ${PORT}`))
+    https
+  .createServer(
+    {
+      key: fs.readFileSync("server.key"),
+      cert: fs.readFileSync("server.cert"),
+    },
+    app
+  )
+  .listen(PORT, () => console.log(`server running on port ${PORT}`))
 })
