@@ -1,0 +1,119 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.loginTab,
+.signupTab {
+    flex-grow: 1;
+    border: none;
+    border-radius:none ;
+    height: 62px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px 0 0 0;
+}
+
+.signupTab {
+    border-radius:  0 10px 0 0;
+}
+
+.border-bottom {
+    border-bottom: solid 2px #DC3755;
+}
+
+.cart-container {
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+    width: 516px;
+    background: white;
+    border-radius: 0 0 10px 10px;
+    text-align: left;
+}
+
+
+.auth,
+.register {
+    display: block;
+}
+
+.none {
+    display: none !important;
+}
+.register-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0;
+}
+
+.text {
+    margin-top: 0;
+    padding-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.63);
+}
+
+.reg-input {
+    padding-left: 3%;
+    margin-top: 16px;
+    margin-left: 30px;
+    width: 441px;
+    height: 62px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    border-radius: 10px;
+    direction: ltr;
+    font-size: 20px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.err,
+.err2 {
+    margin-top: 0;
+    padding-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #DC3755;
+    display: none;
+}
+
+.submit {
+    width: 306px;
+    height: 67px;
+    background: #DC3755;
+    border-radius: 50px;
+    border: none;
+    margin: 28px 105px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    box-shadow: 0 1rem 3rem rgb(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+.msg {
+    margin-top: 18px;
+    margin-right: 8.5%;
+}

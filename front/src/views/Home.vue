@@ -3,9 +3,6 @@
     <auth @auth="setToken" v-if="showAuth" />
    <input type="text" name="getURL" id="getURL" v-model="url">
    <button @click="checkToken">submit</button>
-   <h1 @click="mmd">click</h1>
-   <h1 @click="mmauth">auth</h1>
-   <h1 @click="mmref">refresh</h1>
   </div>
 </template>
 
@@ -21,7 +18,7 @@ export default {
       url : '',
       short : '',
       accessToken : '',
-      showAuth : false
+      showAuth : true
     }
   },
   methods : {
