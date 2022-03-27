@@ -112,6 +112,6 @@ export default {
 }
 </script>
 
-<style src="../style/auth.css">
+<style src="../style/auth.css" scoped >
 
 </style>

@@ -1,0 +1,65 @@
+.shortner-container {
+    width: 516px;
+    background: #e4e4e4;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 100px;
+}
+
+.text {
+    margin-top: 0;
+    padding-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.63);
+}
+
+.input-container {
+    margin: 16px 25px;
+    margin-bottom: 0;
+}
+.url-input {
+    padding: 10px 3%;
+    width: 441px;
+    min-height: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    border-radius: 10px;
+    direction: ltr;
+    font-size: 18px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    display: block;
+    overflow: hidden;
+    resize: both;
+
+}
+
+.err {
+    margin-top: 0;
+    padding-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #DC3755;
+    display: none;
+}
+
+.submit {
+    width: 306px;
+    height: 67px;
+    background: #1bb140;
+    border-radius: 50px;
+    border: none;
+    margin: 28px 105px;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    box-shadow: 0 1rem 3rem rgb(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color:#0edd42;
+}
