@@ -1,5 +1,59 @@
 body {
-    background-image: linear-gradient(to left, #00BFFF ,#571B7E );
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to left, #00BFFF ,#571B7E );
+}
+
+.head {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 30px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border: solid 1px #000000;
+  border-radius: 15px;
+  background-color: #222222;
+  color: #EEEEEE;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.help {
+  padding: 15px;
+  position: fixed;
+  top: 60px;
+  right: 30px;
+  width: 360px;
+  margin-right: 20px;
+  background-color: #e4e4e4;
+  border: solid 1px #000000;
+  border-radius: 30px 0 30px 30px;
+}
+
+.question {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.answer {
+  margin-top: 5px;
+  font-size: 18px;
+  padding-bottom: 15px;
+  border-bottom: solid 1px #FFFFFF;
+}
+
+.answer:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .wrapper,
@@ -89,36 +143,7 @@ body {
     left: 50%;
     animation: animate 6s linear infinite;
   }
-  .wrapper div:nth-child(10) {
-    top: 45%;
-    left: 20%;
-    animation: animate 10s linear infinite;
-  }
-  .wrapper div:nth-child(11) {
-    top: 10%;
-    left: 90%;
-    animation: animate 9s linear infinite;
-  }
-  .wrapper div:nth-child(12) {
-    top: 20%;
-    left: 70%;
-    animation: animate 7s linear infinite;
-  }
-  .wrapper div:nth-child(13) {
-    top: 20%;
-    left: 20%;
-    animation: animate 8s linear infinite;
-  }
-  .wrapper div:nth-child(14) {
-    top: 60%;
-    left: 5%;
-    animation: animate 6s linear infinite;
-  }
-  .wrapper div:nth-child(15) {
-    top: 90%;
-    left: 80%;
-    animation: animate 9s linear infinite;
-  }
+
   @keyframes animate {
     0% {
       transform: scale(0) translateY(0) rotate(70deg);

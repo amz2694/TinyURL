@@ -29,7 +29,7 @@
 }
 
 .border-bottom {
-    border-bottom: solid 2px #DC3755;
+    border-bottom: solid 2px #1bb140;
 }
 
 .cart-container {
@@ -102,7 +102,7 @@
 .submit {
     width: 306px;
     height: 67px;
-    background: #DC3755;
+    background: #1bb140;
     border-radius: 50px;
     border: none;
     margin: 28px 105px;
@@ -111,6 +111,10 @@
     font-size: 22px;
     box-shadow: 0 1rem 3rem rgb(0, 0, 0, 0.35);
     cursor: pointer;
+}
+
+.submit:hover {
+    background-color:#0edd42;
 }
 
 .msg {

@@ -7,7 +7,7 @@
         <span class="url-input" role="textbox" contenteditable></span>
       </div>
       <p class="err" >please fill the input</p>
-      <button class='submit' @click="checkToken">submit</button>
+      <button class='submit' @click="checkToken">Make ShoerURL</button>
     </div>
   </div>
 </template>
