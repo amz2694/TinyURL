@@ -88,17 +88,6 @@
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 }
 
-.err,
-.err2 {
-    margin-top: 0;
-    padding-top: 20px;
-    margin-left: 40px;
-    margin-bottom: 0;
-    font-size: 18px;
-    color: #DC3755;
-    display: none;
-}
-
 .submit {
     width: 306px;
     height: 67px;

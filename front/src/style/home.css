@@ -63,3 +63,27 @@
 .submit:hover {
     background-color:#0edd42;
 }
+
+.copy-container {
+    display: flex;
+    margin-top: 16px;
+}
+
+.copy-but {
+    border-radius: 0 10px 10px 0;
+    border: none;
+    background-color: #1bb140;
+    width: 75px;
+    color: #EEEEEE;
+    cursor: pointer;
+}
+
+.copy-input {
+    border-radius: 10px 0 0 10px;
+    cursor: not-allowed;
+    
+}
+
+.short-text {
+    margin-left: 8px;
+}

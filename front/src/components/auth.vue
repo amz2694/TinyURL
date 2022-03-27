@@ -1,5 +1,6 @@
 <template>
 <div class="register-container">
+<msg :msg="err" v-if="err" @endmsg="endmsg" />
     <div class="container">
         <div class="tabs">
             <button id="loginTab" class="loginTab" @click="toggleLogin">login</button>
@@ -14,7 +15,6 @@
                     <input type="text" class="reg-input" v-model="email">
                     <p class="text">password :</p>
                     <input type="text" class="reg-input" v-model="pass">
-                    <p class="err" >please fill the inputs</p>
                     <button class='submit' @click="submitRegister">submit</button>
                 </div>
             </div>
@@ -24,7 +24,6 @@
                     <input type="text" class="reg-input" v-model="username">
                     <p class="text">password :</p>
                     <input type="text" class="reg-input" v-model="pass">
-                    <p class="err2" >please fill the inputs</p>
                     <button class='submit' @click="submitAuth">submit</button>
                 </div>
             </div>
@@ -35,17 +34,23 @@
 
 <script>
 import axios from 'axios';
+import msg from "./msg.vue"
 
 export default {
+  components: { msg },
     data() {
         return {
             username : '',
             email : '',
             pass : '',
-            accessToken : ''
+            accessToken : '',
+            err : ''
         }
     },
     methods : {
+        endmsg() {
+            this.err ="";
+        },
         toggleSignup() {
             document.getElementById('loginTab').classList.remove('border-bottom');
             document.getElementById('signupTab').classList.add('border-bottom');
@@ -75,13 +80,14 @@ export default {
                 })
                 .catch(err => {
                     if (err.response.status == 409) {
+                        this.err = "this username already exist"
                         console.log('duplicated');
                     } else {
-                        console.log(err);
+                        this.err = "something went wrong please try again";
                     }
                 })
             } else {
-                document.getElementsByClassName('err')[0].style.display = "block";
+                this.err = "please fill the inputs";
             }
         },
         async submitAuth() {
@@ -98,13 +104,13 @@ export default {
                 })
                 .catch(err => {
                     if (err.response.status == 401) {
-                        console.log('no username found');
+                        this.err = "username or password wrong";
                     } else {
-                        console.log(err);
+                        this.err = "something went wrong please try again";
                     }
                 })
             } else {
-                document.getElementsByClassName('err2')[0].style.display = "block";
+                this.err = "please fill the inputs";
             }
         }
 

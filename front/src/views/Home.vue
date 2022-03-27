@@ -1,12 +1,19 @@
 <template>
   <div class="home">
+    <Msg :msg="err" v-if="err" @endmsg="endmsg"/>
     <auth @auth="setToken" v-if="showAuth" />
     <div class="shortner-container">
       <p class="text">enter your big boy (URL) :</p>
       <div class="input-container">
         <span class="url-input" role="textbox" contenteditable></span>
       </div>
-      <p class="err" >please fill the input</p>
+      <div class="input-container" v-show="short" >
+        <p class="text short-text">your tiny input :</p>
+        <div class="copy-container">
+          <input type="text" id="short" class="url-input copy-input" disabled @click="copy">
+          <button @click="copy" class="copy-but">copy</button>
+        </div>
+      </div>
       <button class='submit' @click="checkToken">Make ShoerURL</button>
     </div>
   </div>
@@ -15,18 +22,31 @@
 <script>
 import axios from 'axios'
 import auth from '../components/auth.vue'
+import Msg from '../components/msg.vue'
 
 export default {
   name: 'Home',
-  components: {auth},
+  components: {auth, Msg},
   data() {
     return {
       short : '',
       accessToken : '',
-      showAuth : false
+      showAuth : false,
+      err : ''
     }
   },
   methods : {
+    copy() {
+      var r = document.createRange();
+      r.selectNode(document.getElementById("short"));
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(r);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+    },
+    endmsg() {
+      this.err ="";
+    },
     setToken(token) {
       this.accessToken = token;
       this.checkToken();
@@ -44,12 +64,13 @@ export default {
               this.showAuth = false;
             })
             .catch(err => {
-              this.showAuth = true
-              console.log(err)
+              this.showAuth = true;
+              console.log(err);
+              this.err = "something went wrong please try again";
             })
         }
       } else {
-          document.getElementsByClassName('err')[0].style.display = "block";
+          this.err = "please fill the inputs";
       }
     }
     ,
@@ -62,10 +83,11 @@ export default {
         .post('https://127.0.0.1:8000/short',{"URL": url},config)
         .then(res => {
           this.short = res.data.shortURL;
-          console.log(`success ${this.short}`);
+          document.getElementById("short").value =this.short;
         })
         .catch(err => {
           console.log(err);
+          this.err = "something went wrong please try again";
         })
     }
   }

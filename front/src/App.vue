@@ -1,5 +1,4 @@
 <template>
-<auth v-if="showRegister"/>
   <div class="head">
     <div class="nav" @click="toggleHelp">
       <span class="help-icon">?</span>

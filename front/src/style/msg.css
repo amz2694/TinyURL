@@ -1,0 +1,16 @@
+.msg-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #c91637;
+    height: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, .5);
+}
+
+.msg {
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
