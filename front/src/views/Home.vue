@@ -8,13 +8,13 @@
         <span class="url-input" role="textbox" contenteditable></span>
       </div>
       <div class="input-container" v-show="short" >
-        <p class="text short-text">your tiny input :</p>
+        <p class="text short-text">your tiny URL :</p>
         <div class="copy-container">
           <input type="text" id="short" class="url-input copy-input" disabled @click="copy">
           <button @click="copy" class="copy-but">copy</button>
         </div>
       </div>
-      <button class='submit' @click="checkToken">Make ShoerURL</button>
+      <button class='submit' @click="checkToken">Make TinyURL</button>
     </div>
   </div>
 </template>
