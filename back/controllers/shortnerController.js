@@ -1,7 +1,7 @@
 const Url = require('../model/Url');
 
 const handleCreateShortner = async (req,res) => {
-    const { URL } = req.body;
+    let { URL } = req.body;
     if (!URL ) return res.status(400).json({ "message": "URL is required." });
     try {
         let last = await Url.find().sort({ _id: -1 }).limit(1);
@@ -20,6 +20,9 @@ const handleCreateShortner = async (req,res) => {
         rest += alphabet[0];
     }
     short = lastId.slice(0, i) + alphabet[change + 1] + rest;
+    if (URL.indexOf("://") == -1) {
+        URL = "://".concat(URL);
+    }
         // create && store the new user
         const result = await Url.create({
             "user": req.user,
