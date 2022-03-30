@@ -10,20 +10,20 @@
             <div class="register">
                 <div class="login">
                     <p class="text">username :</p>
-                    <input type="text" class="reg-input" v-model="username">
+                    <input type="text" class="reg-input" id="login-username" v-model="username">
                     <p class="text">email :</p>
-                    <input type="text" class="reg-input" v-model="email">
+                    <input type="text" class="reg-input" v-model="email" id="login-email">
                     <p class="text">password :</p>
-                    <input type="text" class="reg-input" v-model="pass">
+                    <input type="text" class="reg-input" v-model="pass" id="login-pass">
                     <button class='submit' @click="submitRegister">submit</button>
                 </div>
             </div>
             <div class="auth none">
                 <div class="login">
                     <p class="text">username :</p>
-                    <input type="text" class="reg-input" v-model="username">
+                    <input type="text" class="reg-input" v-model="username" id="signup-username">
                     <p class="text">password :</p>
-                    <input type="text" class="reg-input" v-model="pass">
+                    <input type="text" class="reg-input" v-model="pass" id="signup-pass">
                     <button class='submit' @click="submitAuth">submit</button>
                 </div>
             </div>
@@ -66,7 +66,7 @@ export default {
             
         },
         async submitRegister() {
-            if (this.username.length || this.email.length || this.pass.length) {
+            if (this.username.length && this.email.length && this.pass.length) {
             const registerData = {
                 user : this.username,
                 email : this.email,
@@ -87,11 +87,33 @@ export default {
                     }
                 })
             } else {
+                if (!this.username.length) {
+                    const loginUsername = document.getElementById('login-username');
+                    loginUsername.classList.add('ivalid-input');
+                    setTimeout(()=>{
+                        loginUsername.classList.remove('ivalid-input');
+                    },5000)
+                }
+                if (!this.email.length) {
+                    const loginEmail = document.getElementById('login-email');
+                    loginEmail.classList.add('ivalid-input');
+                    setTimeout( ()=> {
+                        loginEmail.classList.remove('ivalid-input');
+                    },5000)
+                }
+                if (!this.pass.length) {
+                    const loginpass = document.getElementById('login-pass');
+                    loginpass.classList.add('ivalid-input');
+                    setTimeout( ()=> {
+                        loginpass.classList.remove('ivalid-input');
+                    },5000)
+                    
+                }
                 this.err = "please fill the inputs";
             }
         },
         async submitAuth() {
-            if (this.username.length || this.email.length || this.pass.length) {
+            if (this.username.length && this.pass.length) {
             const authData = {
                 user : this.username,
                 pwd : this.pass
@@ -110,6 +132,21 @@ export default {
                     }
                 })
             } else {
+                if (!this.username.length) {
+                    const signupUsername = document.getElementById('signup-username');
+                    signupUsername.classList.add('ivalid-input');
+                    setTimeout(()=>{
+                        signupUsername.classList.remove('ivalid-input');
+                    },5000)
+                }
+                if (!this.pass.length) {
+                    const signupPass = document.getElementById('signup-pass');
+                    signupPass.classList.add('ivalid-input');
+                    setTimeout( ()=> {
+                        signupPass.classList.remove('ivalid-input');
+                    },5000)
+                    
+                }
                 this.err = "please fill the inputs";
             }
         }

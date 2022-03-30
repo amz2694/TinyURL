@@ -5,11 +5,11 @@
     </div>
     <div class="help" v-if="help" >
       <p class="question">how does it works?</p>
-      <p class="answer">enter your big URL in the input and get the tiny version</p>
-      <p class="question">how long will my tiny link be avaliable?</p>
-      <p class="answer">forever as long as this site up</p>
-      <p class="question">why this site?</p>
-      <p class="answer">why not :) there is nothing special except no filter on this site</p>
+      <p class="answer">Enter your big URL in the input box and get the tiny version of it.</p>
+      <p class="question">How long will the tiny link be avaliable?</p>
+      <p class="answer">As long as this website is up and running, you can use the tiny link.</p>
+      <p class="question">Why this website?</p>
+      <p class="answer">It's as fast as a URL shortener can get.</p>
     </div>
   </div>
   <div class="wrapper">

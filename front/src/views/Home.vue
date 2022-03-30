@@ -3,7 +3,7 @@
     <Msg :msg="err" v-if="err" @endmsg="endmsg"/>
     <auth @auth="setToken" v-if="showAuth" />
     <div class="shortner-container">
-      <p class="text">enter your big boy (URL) :</p>
+      <p class="text">enter your big URL :</p>
       <div class="input-container">
         <span class="url-input" role="textbox" contenteditable></span>
       </div>
@@ -70,6 +70,11 @@ export default {
             })
         }
       } else {
+          const bigUrl = document.getElementsByClassName('url-input')[0];
+          bigUrl.classList.add('ivalid-input');
+          setTimeout(()=>{
+              bigUrl.classList.remove('ivalid-input');
+          },5000)
           this.err = "please fill the inputs";
       }
     }

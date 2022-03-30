@@ -110,3 +110,14 @@
     margin-top: 18px;
     margin-right: 8.5%;
 }
+
+.ivalid-input {
+    border: 2px solid rgba(223, 15, 15, 0.38);
+    animation: shake 300ms;
+}
+
+@keyframes shake {
+    25% {transform: translateX(6px);}
+    50% {transform: translateX(-6px);}
+    75% {transform: translateX(6px);}
+}
