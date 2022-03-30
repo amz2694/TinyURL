@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConfig');
 const corsOptions = require('./config/corsOption');
 const credentials = require('./middleware/credentials.js');
+const { logger } = require('./middleware/logEvent');
+const errorHandler = require('./middleware/errorHandler');
 var fs = require("fs");
 var https = require("https");
 const PORT = process.env.PORT || 8000;
@@ -15,6 +17,8 @@ require('dotenv').config();
 
 // connect to database
 connectDB();
+
+app.use(logger);
 
 // cross origin resource sharing
 app.use(credentials);
@@ -35,6 +39,8 @@ app.use('/auth', require('./routes/auth.js'));
 app.use('/refresh', require('./routes/refresh'));
 
 app.use('/short', require('./routes/api/shortner'));
+
+app.use(errorHandler);
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
