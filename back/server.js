@@ -39,6 +39,7 @@ app.use('/auth', require('./routes/auth.js'));
 app.use('/refresh', require('./routes/refresh'));
 
 app.use('/short', require('./routes/api/shortner'));
+app.use('/details', require('./routes/api/details'));
 
 app.use(errorHandler);
 

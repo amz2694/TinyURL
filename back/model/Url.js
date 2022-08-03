@@ -17,6 +17,22 @@ const urlSchema = new Schema({
     shortURL: {
         type: String,
         required: true
+    },
+    os : {
+        type: Object,
+        required: false
+    },
+    machine : {
+        type: Object,
+        required: false
+    },
+    country : {
+        type: Object,
+        required: false
+    },
+    time : {
+        type: Array,
+        required: false
     }
 });
 
