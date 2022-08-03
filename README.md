@@ -86,6 +86,27 @@ GET   /short
 
 ---
 
+get the details about your short url using:
+```http
+GET   /details
+```
+| Parameter | Type |
+| :--- | :--- |
+| `URL` | `string` |
+
+200 status code return
+```javascript
+{
+  realURL : String,
+  os      : Object,
+  machine : Object,
+  time    : Object,
+  country : Object,
+}
+```
+
+---
+
 shorten the URL:
 ```http
 POST  /short
